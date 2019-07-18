@@ -228,3 +228,18 @@ resultado_datos<-sapply(vlinkCafetera, getProduct)
 class(resultado_datos)
 #Dimension (240 urls con 9 parametros)
 dim(resultado_datos)
+#Se crea la matrix con cada columna con resultados.
+resultado_datos
+#Giramos la matriz que se vea los datos por filas
+res<-t(resultado_datos)
+View(res)
+length(resultado_datos)
+
+  #Ponemos los nombres de la columnas y de rows
+products_results<-as.data.frame(res)
+colnames(res)<-c("Nombre", "Precio", "Oferta", "Opiniones", "Marca", "Ancho", "Alto", "Peso", "Color")
+rownames(res)<-c(1:NROW(res))
+View(res)
+
+#guardamos el dataset en csv
+write.csv(res, file="D:\\Gmunoz\\Desarrollo\\Propios\\R\\RScripts\\cafeteras.csv")
